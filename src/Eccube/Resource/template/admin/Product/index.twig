@@ -134,6 +134,7 @@ file that was distributed with this source code.
             $('#form_bulk').find('.action-submit').on('click', function(event) {
                 event.preventDefault();
                 var form = $(this).closest('form');
+                console.log(form);
                 if (!form.find('input:checkbox[name^="ids"]:checked').length) {
                     {# TODO: should use modal instead of alert #}
                     alert('please check');
@@ -143,13 +144,16 @@ file that was distributed with this source code.
                 $('<input />').attr('type', 'hidden').attr('name', '{{ constant('Eccube\\Common\\Constant::TOKEN_NAME') }}')
                     .val($(this).attr('token-for-anchor'))
                     .appendTo(form);
-                form.attr('action', $(this).data('action')).submit();
+                console.log($(this).data('action'));
+                console.log(form.attr('action', $(this).data('action')));
+                {# form.attr('action', $(this).data('action')).submit(); #}
                 return false;
             });
 
             var dataClass = [];
             var modalClass = $('#productClassesModal');
             $('form#form_bulk').on('click', 'table.table button[data-class-url]', function() {
+                console.log("----------------");
                 var btnClass = $(this);
                 btnClass.attr('disabled', true);
                 var productId = btnClass.data('product-id');

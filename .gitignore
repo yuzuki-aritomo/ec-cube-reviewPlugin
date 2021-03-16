@@ -10,6 +10,7 @@ composer.phar
 /app/log/*
 !/app/log/.gitkeep
 /app/Plugin/*
+!/app/Plugin/ProductReview4/
 !/app/Plugin/.gitkeep
 !/app/Plugin/ExamplePlugin
 /app/PluginData/*
